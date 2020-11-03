@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    
+
+
+</head>
+<body style="background-color:rgb(247, 161, 140);">
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li><a id="len1" class="hoverable" href="index.html">Home</a></li>
+              <li><a id="len2" class="hoverable" href="about.html">About</a></li>
+              <li><a id="len3" class="hoverable" href="blog.html">Blog</a></li>
+              <li><a id="len4" class="hoverable" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div id="contact">
+          
+            <p class="lead">
+              <h1 style="text-align: center;">Contact</h1> 
+              <p>This page is dedicated for Contact Us. If you want any more information, 
+                do not hesitate to reach us out.</p>
+
+                <form id="signUpForm">
+                  
+                  Name :
+                  </br>
+                  <input type="text" id="nameField" placeholder="Name" required>
+                  </br>
+                  </br>
+                  Phone Number :
+                  </br>
+                  <input  id="numberField" placeholder="1234567890"  pattern="^\d{10}$" required>
+                </br>
+                </br>
+                  Email :
+                  </br>
+                  <input type="email" placeholder="abc@gmail.com" id="emailField" required>
+                </br>
+                </br>
+                  Comments :
+                  </br>
+                  <input type="text" rows="4" cols="50" placeholder="Comments" id="commentField" required>
+                  </br>
+                  </br>
+                </br>
+                </br>
+                  <button id="okButton" >OK</button>
+                </form>
+
+            </p>
+          </div>
+      </div>
+
+
+
+
+      <script>
+        const signUpForm = document.getElementById('signUpForm');
+        const nameField = document.getElementById('nameField');
+        const numberField = document.getElementById('numberField');
+        const emailField = document.getElementById('emailField');
+        const okButton = document.getElementById('okButton');
+         
+        
+        nameField.addEventListener('keyup', function (event) {
+          const isValidName = nameField.checkValidity();
+        }
+        //   if ( isValidName ) {
+        //     okButton.disabled = false;
+        //   } else {
+        //     okButton.disabled = true;
+        //   }
+        // });
+
+        var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/; 
+        numberField.addEventListener('keyup', function (event) {
+          const isValidNumber = numberField.checkValidity();
+        
+          if ( numberField.value.match(phoneno) ) {
+            alert("Valid");
+          } else {
+            alert("Not Valid");
+          }
+        });
+
+
+        // emailField.addEventListener('keyup', function (event) {
+        //   const isValidEmail = emailField.checkValidity();
+          
+        //   if ( isValidEmail && isValidNumber && isValidName ) {
+        //     okButton.disabled = false;
+        //   } else {
+        //     okButton.disabled = true;
+        //   }
+        // });
+          
+        okButton.addEventListener('click', function (event) {
+          signUpForm.submit();
+        });
+        </script>
+      
+</body>
+</html>
